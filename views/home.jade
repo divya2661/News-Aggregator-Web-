@@ -1,0 +1,56 @@
+doctype html
+html
+	head
+		title= title
+		link(rel='stylesheet', href='/stylesheets/style.css')
+		link(rel='stylesheet', href='/stylesheets/runnable.css')
+		link(rel='stylesheet', href='http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css')
+		script(src='http://code.jquery.com/jquery-1.9.1.js')
+		script(src='http://code.jquery.com/ui/1.10.3/jquery-ui.js')
+		script(src="javascripts/script.js")
+		script(src="javascripts/script1.js")
+		
+	body
+	div(class = "navbar navbar-inverse navbar-fixed-top")
+		.container
+			.navbar-header
+				button.navbar-toggle(type="button",data-toggle="collapse",data-target=".navbar-collapse")
+					span.icon-bar
+					span.icon-bar
+					span.icon-bar
+				a.navbar-brand(href="/home") Welcome #{user.firstName} in Juspay news
+			div(class="collapse navbar-collapse")
+				ul(class="nav navbar-nav")
+					li.active
+						a(href="/home") Home
+					li
+						a(href="/sport") Sports
+					li
+						a(href="/tech") Tech
+					li
+						a(href="/entertainment") Entertainment
+					li
+						a(href="/travel") Travel
+					li
+						a(href='/signout') Sign Out
+					
+	br
+	br
+	
+	div(id = "home_content")
+		div.col-sm-8.col-md-8.col-md-offset-0
+			each data_array in news.data_array
+					div.row
+						div(class="alert alert-success" role="alert" style="text-align:center")
+							a(href='#{data_array.link}',style='text-align:center') #{data_array.title} |----> #{data_array.date}
+							
+	div.col-sm-3.col-md-3.col-md-offset-1
+		div.row
+			h1.text-center.login-title Pick date range
+				div.account-wall
+					h4.text-center range: #{datei} -- #{datel}
+					form(class='form-signin', action='/date_pick', method='POST')
+						input(type='text',name="date1", id="datepicker",class='form-control')
+						input(type='text',name="date2", id="datepicker1",class='form-control')
+						br
+						button(class='btn btn-lg btn-warning btn-block',id="pick", type='submit') Pick

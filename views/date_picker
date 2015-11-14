@@ -1,0 +1,16 @@
+!!!5
+html
+  head
+    link(type='text/css', href='css/ui-lightness/jquery-ui-1.9.1.custom.min.css',  rel='stylesheet')
+    script(src='js/jquery-1.8.2.js', type='text/javascript')
+    script(src='js/jquery-ui-1.9.1.custom.min.js', type='text/javascript')
+    script(src='js/i18n/jquery-ui-i18n.min.js', type='text/javascript')
+    script
+      $(function() {
+        $.datepicker.setDefaults(
+          $.extend($.datepicker.regional[""])
+        );
+        $("#datepicker").datepicker();
+      });
+  body
+    #datepicker

@@ -1,0 +1,26 @@
+div.container
+	div.row
+		div.col-sm-6.col-md-4.col-md-offset-0
+			#user
+				h1.text-center.login-title Welcome #{user.firstName}. Check your details below:
+					div.signup-wall
+						ul.user-details
+							li Username ---> #{user.username}
+							li Email    ---> #{user.email}
+							li First Name ---> #{user.firstName} 
+							li Last Name ---> #{user.lastName}
+							li tech ------>#{user.tech}
+							li sport ------>#{user.sport}
+					a(href='/signout', class='text-center new-account') Sign Out
+
+						ul
+				li
+					a(href='#{news.tech[0].link}') #{news.tech[0].title}
+
+div.col-sm-10.col-md-10.col-md-offset-0
+			div.row
+				div.col-sm-6.col-md-6.col-offset-0
+					div(class="alert alert-success" role="alert")
+							a(href='#{news.tech[i].link}') #{news.tech[i].title} |----> #{news.tech[i].date}
+							
+						
